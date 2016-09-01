@@ -1,0 +1,27 @@
+background yes
+double_buffer yes
+own_window_class conky
+own_window yes
+own_window_type panel
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_argb_visual yes
+own_window_transparent yes
+own_window_argb_value 132
+draw_borders no
+draw_graph_borders no
+border_margin 5
+border_width 1
+draw_shades yes
+gap_x 0
+gap_y 5
+alignment top_left
+update_interval 1
+default_color  8f8f8f
+#own_window_colour 494949
+use_xft yes
+xftfont sans:size=9
+override_utf8_locale yes
+use_spacer none
+minimum_size 1900 0
+TEXT
+${goto 5}Date: ${color b6b0b0}${font sans:size=9}${time %d/%m/%y}${color}${font}  Time: ${color b6b0b0}${font sans:size=9}${time %H:%M}${color}${font}  |  Battery: ${color b6b0b0}${font sans:size=9}${battery_percent BAT0}% ${battery_bar 8,70 BAT0}${color}${font}  Uptime: ${color b6b0b0}${font sans:size=9}${uptime_short}${color}${font}  |  Cpu: ${color b6b0b0}${font sans:size=9}${cpu}%${color}${font}  Ram: ${color b6b0b0}${font sans:size=9}${memperc}%${color}${font}  |  Temp: ${color b6b0b0}${font sans:size=9}${execi 6 sensors | grep 'Core 0'  | cut -c 18,19}°C${color}${font}  |  hdd: ${color b6b0b0}${font sans:size=9} ${fs_used_perc /}% ${fs_used /} / ${fs_size /} ${color}${font} |  ${color 82BA00}E:${color}${color b6b0b0}${font sans:size=9}${addr enp2s0f1} ${font}${color}${color 82BA00}W:${color b6b0b0}${font sans:size=9}${addr wlp3s0}${font}${color} | ${color} ${if_existing /proc/net/route enp2s0f1}Ethernet: ${color 82BA00}Up :${color} ${color b6b0b0}${upspeed enp2s0f1} kb/s${color}  ${color 82BA00}Down :${color} ${color b6b0b0}${downspeed enp2s0f1} kb/s${color} ${color 82BA00} Total :${color} ${color b6b0b0}${totaldown enp2s0f1}${color}${else}Ethernet Unavailable${endif} | ${if_existing /proc/net/route wlp3s0}Wireless: ${color 82BA00}${font sans:size=9}Up :${color}${font} ${color b6b0b0}${upspeed wlp3s0} kb/s${color}  ${color 82BA00}${font sans:size=9}Down :${color}${font} ${color b6b0b0}${downspeed wlp3s0} kb/s${color} ${color 82BA00}${font sans:size=9}Total down :${color}${font} ${color b6b0b0}${totaldown wlp3s0}${color}${else}Wireless Unavailable${endif}
